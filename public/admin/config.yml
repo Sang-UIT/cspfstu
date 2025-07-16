@@ -1,0 +1,51 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "home"
+    label: "Trang chủ"
+    files:
+      - label: "Nội dung Trang chủ"
+        name: "home_content"
+        file: "content/home.md"
+        fields:
+          - { label: "Tiêu đề", name: "title", widget: "string" }
+          - { label: "Mô tả", name: "description", widget: "text" }
+          - { label: "Ảnh nổi bật", name: "hero_image", widget: "image" }
+
+  - name: "gallery"
+    label: "Bộ sưu tập ảnh"
+    folder: "content/gallery"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Tên ảnh", name: "title", widget: "string" }
+      - { label: "Ảnh", name: "image", widget: "image" }
+      - { label: "Mô tả", name: "description", widget: "text", required: false }
+
+  - name: "services"
+    label: "Dịch vụ"
+    folder: "content/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Tên dịch vụ", name: "title", widget: "string" }
+      - { label: "Giá", name: "price", widget: "string" }
+      - { label: "Mô tả", name: "description", widget: "text" }
+
+  - name: "contact"
+    label: "Liên hệ"
+    files:
+      - label: "Thông tin liên hệ"
+        name: "contact_info"
+        file: "content/contact.md"
+        fields:
+          - { label: "Địa chỉ", name: "address", widget: "string" }
+          - { label: "Số điện thoại", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Facebook", name: "facebook", widget: "string", required: false }
+          - { label: "Instagram", name: "instagram", widget: "string", required: false } 
